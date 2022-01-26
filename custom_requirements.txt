@@ -14,3 +14,4 @@ pickle-mixin==1.0.2
 google-resumable-media==2.1.0
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.9.0+cpu
+functions-framework

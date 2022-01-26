@@ -5,7 +5,8 @@ services:
       dockerfile: ./lightfm/Dockerfile
     # Uncomment this to mount your local version
     # of the LightFM code.
-    # volumes:
-    #   - /home/prabhu/:/home/
+    volumes:
+      - /home/prabhu/projects/x/recommendations:/home/recommendations
     ports:
-    - "8888:8888"
+      - "8888:8888"
+      - "8080:8080"
