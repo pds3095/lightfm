@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get install -y libxml2 libxslt-dev wget bzip2 gcc
+RUN apt-get install -y libxml2 libxslt-dev wget bzip2 gcc vim
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
     wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -14,7 +14,8 @@ RUN conda install pytest jupyter scikit-learn
 
 ENV PYTHONDONTWRITEBYTECODE 1
 
-ADD . /home/lightfm/
+ADD x/recommendations/. /home/recommendations/
+ADD lightfm/. /home/lightfm/
 WORKDIR /home/
 
-RUN cd lightfm && pip install -e .
+RUN cd lightfm && pip install -e . && pip install -r custom_requirements.txt
